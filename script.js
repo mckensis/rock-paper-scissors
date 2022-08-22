@@ -4,6 +4,7 @@ const buttons = document.querySelectorAll('button');
 const score = document.createElement('p');
 const winner = document.createElement('p');
 const info = document.querySelector('.info');
+const h3 = document.createElement('h3');
 
 winner.classList.add("winner");
 score.classList.add("score");
@@ -56,26 +57,30 @@ function playRound(playerSelection) {
             roundWinner = ["round lost! scissors beats paper!", "cpu"];
         }
     }
-
+    
     if (roundWinner[1] === "cpu") {
         cpuScore++;
     } else if (roundWinner[1] === "player") {
         playerScore++;
     }
 
-    score.textContent = `player score ${playerScore} - ${cpuScore} cpu score`;
+    h3.textContent = "score:";
+    score.textContent = `${playerScore} - ${cpuScore}`;
     winner.textContent = roundWinner[0];
-    info.appendChild(winner);
+    info.appendChild(h3);
     info.appendChild(score);
+    info.appendChild(winner);
 
     if (cpuScore === 5) {
         winner.classList.add("gameOver");
         winner.textContent = "game over! computer wins!";
         info.removeChild(score);
+        info.removeChild(h3);
     } else if (playerScore === 5) {
         winner.classList.add("gameOver");
         winner.textContent = "game over! you win!";
         info.removeChild(score);
+        info.removeChild(h3);
     }
 
 };

@@ -3,14 +3,17 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: 1px solid red;
 }
 
 html {
     height: 100vh;
     width: 100vw;
+    text-align: center;
 }
 
 body {
+    font-size: 1.5rem;
     height: 100%;
     width: 100%;
     background-color: #DDC67B;
@@ -23,62 +26,40 @@ body {
 
 .board {
     display: flex;
-    position: relative;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 80%;
-    height: 80%;
+    padding-bottom: 1rem;
 }
 
 h1 {
-    margin-top: 1rem;
-    font-size: 4rem;
+    margin-top: 0.5rem;
+    font-size: 3rem;
     font-family: 'Bungee Shade', cursive;
 }
 
 h2,
 h3 {
     margin-top: 1rem;
-    font-size: 4rem;
-}
-
-.info {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-}
-
-.rules {
-    text-align: center;
-}
-
-.score,
-.winner {
-    margin: 1rem;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
 }
 
 .buttonDiv {
-    margin: 2rem;
+    margin: 1.5rem 0rem;
 }
 
 button {
-    width: 10rem;
-    height: 5rem;
-    margin: 1rem;
+    width: 20rem;
+    height: 4rem;
+    margin: 0.5rem;
     background-color: #bb9457;
     color: white;
     border: 0;
+    font-size: 1.5rem;
+    font-weight:bold;
     border-radius: 2rem;
-    font-size: 2rem;
     box-shadow: 0.5rem 0.5rem 0.5rem black;
-}
-
-p {
-    font-size: 2rem;
 }
 
 .gameOver {
@@ -95,6 +76,21 @@ button:active {
     background-color: #bb9457;
 }
 
+
+.info {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.score,
+.winner {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
 footer {
     display: flex;
     font-family: 'Ubuntu Mono', monospace;
@@ -103,15 +99,25 @@ footer {
     column-gap: 1rem;
     width: 100%;
     height: 3rem;
-    text-align: center;
-    font-size: 2rem;
-    position: absolute;
+    font-size: 1.5rem;
+    position:fixed;
     bottom: 0;
     background-color: #bb9457;
-    border-top: 1px solid black;
 }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+
+a[href="https://github.com/mckensis"] {
+    display:flex;
+    align-items:center;
+    height:3rem;
+    padding-right: 3rem;
+    background-image: url("github.png");
+    background-repeat: no-repeat;
+    background-position-x:right;
+    background-position-y:center;
 }
