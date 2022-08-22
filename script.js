@@ -67,6 +67,7 @@ function playRound(playerSelection) {
     }
 
     if (rules.parentNode) {
+        rules.style.height = "0px";
         rules.parentNode.removeChild(rules);
     }
 

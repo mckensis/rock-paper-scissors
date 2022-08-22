@@ -18,7 +18,7 @@ body {
     background-color: #DDC67B;
     display: flex;
     flex-direction: column;
-    row-gap: 3rem;
+    row-gap: 1.5rem;
     align-items: center;
     font-family: 'Courgette', cursive;
 }
@@ -28,7 +28,6 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-bottom: 1rem;
 }
 
 h1 {
@@ -45,7 +44,7 @@ h3 {
 }
 
 .buttonDiv {
-    margin: 1.5rem 0rem;
+    margin: 0.5rem 0rem;
 }
 
 button {
@@ -87,7 +86,6 @@ button:active {
 .score,
 .winner {
     margin: 0.5rem;
-    padding: 0.5rem;
 }
 
 footer {
