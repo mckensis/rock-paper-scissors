@@ -1,89 +1,81 @@
-const startingScore = 0;
+//Add an event listener to all buttons,
+//Set the playerSelection variable based on button pressed
+const buttons = document.querySelectorAll('button');
+const score = document.createElement('p');
+const winner = document.createElement('p');
+const info = document.querySelector('.info');
 
-let computerScore = 0;
+winner.classList.add("winner");
+score.classList.add("score");
+
 let playerScore = 0;
+let cpuScore = 0;
 
-const computerSelection = '';
-const playerSelection = '';
+for (const button of buttons) {
+    button.addEventListener("click", (e) => {
+
+        if (playerScore < 5 && cpuScore < 5) {
+            const playerSelection = e.target.textContent;
+            playRound(playerSelection);
+        }
+    });
+};
 
 function getComputerChoice() {
-    const options = ["rock", "paper", "scissors"];
+    const options = ["Rock", "Paper", "Scissors"];
     const choice = Math.floor(Math.random() * (options.length - 0) + 0);
     //console.log(`computer choice: ${options[choice]}`);
     return options[choice];
 }
 
-function getPlayerChoice() {
-    switch(choice = prompt("Enter Rock, Paper, or Scissors: ").toLowerCase()) {
+function playRound(playerSelection) {
 
-        case "rock":
-            break;
-        case "paper":
-            break;
-        case "scissors":
-            break;
-        default:
-            getPlayerChoice();
-    };
-    //console.log(`player choice: ${choice}`);
-    return choice;
-}
-
-function playRound(computerSelection, playerSelection) {
-
-    computerSelection = getComputerChoice();
-    playerSelection = getPlayerChoice();
+    const computerSelection = getComputerChoice();
+    let roundWinner = [];
 
     if (computerSelection === playerSelection) {
-        console.log("Tie Round!");
+        roundWinner = ["round tied!", "tie"];
+    } else if (computerSelection === "Rock") {
+        if (playerSelection === "Paper") {
+            roundWinner = ["round won! paper beats rock!", "player"];
+        } else if (playerSelection === "Scissors") {
+            roundWinner = ["round lost! rock beats scissors!", "cpu"];
+        }
 
-    } else if (computerSelection === "rock") {
-        if (playerSelection === "paper") {
-            console.log("You Win! Paper beats Rock!");
-            return playerScore++;
-        } else if (playerSelection === "scissors") {
-            console.log("You Lose! Rock beats Scissors!");
-            return computerScore++;
+    } else if (computerSelection === "Paper") {
+        if (playerSelection === "Scissors") {
+            roundWinner = ["round won! scissors beats paper!", "player"];
+        } else if (playerSelection === "Rock") {
+            roundWinner = ["round lost! paper beats rock!", "cpu"];
         }
-    } else if (computerSelection === "paper") {
-        if (playerSelection === "scissors") {
-            console.log("You Win! Scissors beats Paper!");
-            return playerScore++;
-        } else if (playerSelection === "rock") {
-            console.log("You Lose! Rock beats Scissors!");
-            return computerScore++;
-        }
-    } else if (computerSelection === "scissors") {
-        if (playerSelection === "rock") {
-            console.log("You Win! Rock beats Scissors!");
-            return playerScore++;
-        } else if (playerSelection === "paper") {
-            console.log("You Lose! Scissors beats Paper!");
-            return computerScore++;
+
+    } else if (computerSelection === "Scissors") {
+        if (playerSelection === "Rock") {
+            roundWinner = ["round won! rock beats scissors!", "player"];
+        } else if (playerSelection === "Paper") {
+            roundWinner = ["round lost! scissors beats paper!", "cpu"];
         }
     }
 
-}
-
-function game() {
-
-    playerScore = startingScore;
-    computerScore = startingScore;
-
-
-    const rounds = 5;
-
-    for (let i = 1; i <= rounds; i++) {
-        playRound(computerSelection, playerSelection);
+    if (roundWinner[1] === "cpu") {
+        cpuScore++;
+    } else if (roundWinner[1] === "player") {
+        playerScore++;
     }
 
-    if (playerScore > computerScore) {
-        console.log("%cGame Over! You win!", "color:green");
-    } else if (playerScore < computerScore) {
-        console.log("%cGame Over! Computer wins!", "color:red");
-    } else {
-        console.log("%cGame Over! It's a Draw!", "color:orange");
-    }
-}
+    score.textContent = `player score ${playerScore} - ${cpuScore} cpu score`;
+    winner.textContent = roundWinner[0];
+    info.appendChild(winner);
+    info.appendChild(score);
 
-console.log("Type %cgame(); %cto begin!", "font-size:16px;", "color:black");
+    if (cpuScore === 5) {
+        winner.classList.add("gameOver");
+        winner.textContent = "game over! computer wins!";
+        info.removeChild(score);
+    } else if (playerScore === 5) {
+        winner.classList.add("gameOver");
+        winner.textContent = "game over! you win!";
+        info.removeChild(score);
+    }
+
+};
