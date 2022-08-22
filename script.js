@@ -5,6 +5,8 @@ const score = document.createElement('p');
 const winner = document.createElement('p');
 const info = document.querySelector('.info');
 const h3 = document.createElement('h3');
+const board = document.querySelector('.board');
+const rules = document.querySelector('.rules');
 
 winner.classList.add("winner");
 score.classList.add("score");
@@ -64,6 +66,10 @@ function playRound(playerSelection) {
         playerScore++;
     }
 
+    if (rules.parentNode) {
+        rules.parentNode.removeChild(rules);
+    }
+
     h3.textContent = "score:";
     score.textContent = `${playerScore} - ${cpuScore}`;
     winner.textContent = roundWinner[0];
@@ -82,5 +88,4 @@ function playRound(playerSelection) {
         info.removeChild(score);
         info.removeChild(h3);
     }
-
 };
