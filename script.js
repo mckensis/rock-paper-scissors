@@ -1,17 +1,13 @@
 //Add an event listener to all buttons,
 //Set the playerSelection variable based on button pressed
 const buttons = document.querySelectorAll('button');
-const score = document.createElement('p');
 const winner = document.createElement('p');
 const info = document.querySelector('.info');
 const board = document.querySelector('.board');
-const rules = document.querySelector('.rules');
 const playerChoice = document.querySelector('.player');
 const cpuChoice = document.querySelector('.cpu');
 const pScore = document.querySelector('.pScore');
 const cScore = document.querySelector('.cScore');
-
-winner.classList.add("winner");
 
 let playerScore = 0;
 let cpuScore = 0;
@@ -70,6 +66,9 @@ function playRound(playerSelection) {
         pScore.textContent = playerScore;
     } else if (roundWinner[0].startsWith("Player")) {
         playerScore++;
+        cScore.textContent = cpuScore;
+        pScore.textContent = playerScore;
+    } else {
         cScore.textContent = cpuScore;
         pScore.textContent = playerScore;
     }

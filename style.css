@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 html {
@@ -22,30 +22,55 @@ body {
     font-family: 'Courgette', cursive;
 }
 
-.board {
+/* "Board" and "Round" div styles */
+.board,
+.round {
     display: flex;
+    width: 100%;
+    height:100%;
+}
+.board {
+    height: 100%;
+    gap: 2rem;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
-
-h1 {
-    margin-top: 0.5rem;
-    font-size: 3rem;
-    font-family: 'Bungee Shade', cursive;
+.round {
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
-h2,
-h3 {
-    margin-top: 1rem;
-    padding-bottom: 0.5rem;
+/* "Player", "CPU", and "Scoreboard" div styles */
+.player,
+.cpu,
+.scoreboard {
+    display: flex;
+    font-size: 4rem;
+    width: 33%;
+    height: 5rem;
+    align-self: stretch;
+    align-items: center;
+    justify-content:space-between;
+    padding: 0rem 0.5rem;
+}
+.player,
+.cpu {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.info {
     font-size: 2rem;
+    width: 100%;
+    margin: 0.5rem;
 }
 
 .buttonDiv {
     margin: 0.5rem 0rem;
 }
-
+/* Shared properties for buttons and individual background img */
 button {
     width: 6rem;
     height: 6rem;
@@ -58,95 +83,24 @@ button {
     background-position: center;
     background-size: 100%;
 }
-
 button.rock {
     background-image: url("images/rock.png");
 }
-
 button.paper {
     background-image: url("images/paper.png");
 }
-
 button.scissors {
     background-image: url("images/scissors.png");
 }
-
-.gameOver {
-    font-size: 3rem;
-}
-
 button:hover {
     cursor: pointer;
 }
-
 button:active {
     box-shadow: 0.3rem 0.3rem 0.3rem black;
     color: white;
     background-color: #bb9457;
 }
 
-.board {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 80%;
-    gap: 2rem;
-}
-
-.round {
-    width: 100%;
-    height: 80%;
-    display: flex;
-    align-self: stretch;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.player,
-.cpu,
-.scoreboard {
-    display: flex;
-    font-size: 3rem;
-    width: 33%;
-    gap: 1rem;
-    align-self: stretch;
-    justify-self: stretch;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.player,
-.cpu {
-    max-width: 200px;
-}
-
-.info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    align-self: center;
-    font-size: 2rem;
-    height: 10rem;
-    width: 100%;
-}
-
-.lrg {
-    font-size: 6rem;
-    height: 100%;
-}
-
-.player,
-.cpu {
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.winner {
-    margin: 0.5rem;
-}
 
 footer {
     display: flex;
@@ -167,7 +121,7 @@ a {
     color: black;
 }
 
-
+/* Styles for the footer github link */
 a[href="https://github.com/mckensis"] {
     display:flex;
     align-items:center;
@@ -177,4 +131,20 @@ a[href="https://github.com/mckensis"] {
     background-repeat: no-repeat;
     background-position-x:right;
     background-position-y:center;
+}
+
+h1 {
+    margin-top: 0.5rem;
+    font-size: 3rem;
+    font-family: 'Bungee Shade', cursive;
+}
+h2,
+h3 {
+    margin-top: 1rem;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+}
+/* Class to apply with JS for "Game Over" text */
+.gameOver {
+    font-size: 2.5rem;
 }
