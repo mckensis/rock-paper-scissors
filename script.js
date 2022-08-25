@@ -79,10 +79,10 @@ function playRound(playerSelection) {
 
     if (cpuScore === 5) {
         winner.classList.add("gameOver");
-        winner.textContent = "game over! computer wins!";
+        winner.textContent = "Game Over! Computer Wins!";
     } else if (playerScore === 5) {
         winner.classList.add("gameOver");
-        winner.textContent = "game over! you win!";
+        winner.textContent = "Game Over! You Win!";
     }
 };
 

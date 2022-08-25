@@ -108,12 +108,17 @@ button:active {
 .scoreboard {
     display: flex;
     font-size: 3rem;
-    width: 30%;
+    width: 33%;
     gap: 1rem;
     align-self: stretch;
     justify-self: stretch;
     align-items: center;
     justify-content: space-around;
+}
+
+.player,
+.cpu {
+    max-width: 200px;
 }
 
 .info {
@@ -122,6 +127,7 @@ button:active {
     align-items: center;
     justify-self: center;
     align-self: center;
+    font-size: 2rem;
     height: 10rem;
     width: 100%;
 }
