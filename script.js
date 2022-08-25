@@ -10,7 +10,6 @@ const playerChoice = document.querySelector('.player');
 const cpuChoice = document.querySelector('.cpu');
 const pScore = document.querySelector('.pScore');
 const cScore = document.querySelector('.cScore');
-const scoreSeperator = document.querySelector('.lrg');
 
 winner.classList.add("winner");
 
@@ -75,7 +74,6 @@ function playRound(playerSelection) {
         pScore.textContent = playerScore;
     }
 
-    scoreSeperator.textContent = "-";
     winner.textContent = `${roundWinner[0]} round!`;
     info.appendChild(winner);
 
@@ -90,6 +88,6 @@ function playRound(playerSelection) {
 
 function displayChoice(playerSelection, computerSelection) {
 
-    playerChoice.style.backgroundImage = (`url("/images/${playerSelection}.png")`);
+    playerChoice.style.backgroundImage = (`url("images/${playerSelection}.png")`);
     cpuChoice.style.backgroundImage = (`url("images/${computerSelection}.png")`);
 }
