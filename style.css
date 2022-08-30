@@ -58,7 +58,6 @@ section {
     font-size: 2rem;
     width: 100vw;
     margin-top: 2rem;
-    wrap: wrap;
 }
 
 /* Shared properties for buttons and individual background img */
@@ -139,5 +138,4 @@ h3 {
 /* Class to apply with JS for "Game Over" text */
 .gameOver {
     font-size: 2.5rem;
-    wrap: wrap;
 }
